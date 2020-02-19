@@ -10,6 +10,8 @@ import {
 import Beer from './components/Beer'
 import Newbeers from './components/Newbeers'
 import Randombeers from './components/Randombeers'
+import Beerdetails from './components/Beerdetails'
+
 
 
 
@@ -56,26 +58,20 @@ class App extends Component {
 
   }
 
-  showTheBeers = () => {
-    return this.state.beers.map(eachBeer => {
-      return <li>{eachBeer.name}</li>
-    })
-  }
-
   render() { //Never set state in here 
     //console.log('render may happen more than once', this)
     
 
     return (
       <div>
-          <Home/>
-          {/* {this.showTheBeers()} */}
+          {/* <Home/> */}
           {/* {this.getAllTheBeers()} */}
           <Switch>
             <Route exact path="/" render={props => <Home/>}/> {/* says if url is homepage (/) then just show the home */}
-            <Route exact path="/allbeer" render={props => <Beer/>}/>
+            <Route exact path="/allbeer" render={props => <Beer {...props} allBeers={this.state.beers} alexis="superAlexis"/>}/>
             <Route exact path="/randombeer" render={props => <Randombeers/>}/>
             <Route exact path="/newbeer" render={props => <Newbeers/>}/>
+            <Route exact path="/beers/:happyBeer" render={props => <Beerdetails {...props}/>}/>
           </Switch>
       </div>
     );
@@ -83,3 +79,10 @@ class App extends Component {
 }
 
 export default App;
+
+// props is an object and when you pass a prop to a component that prop become a property of the props object
+// let props = {
+//    allBeers: []
+//    alexis: "SuperAlexis"
+// }
+// this.props.alexis
