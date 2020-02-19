@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+a {
+  text-decoration: none;
+  color:black;
+}
+
+/* target the box thats holding all of the children  */
