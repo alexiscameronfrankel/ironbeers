@@ -69,7 +69,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={props => <Home/>}/> {/* says if url is homepage (/) then just show the home */}
             <Route exact path="/allbeer" render={props => <Beer {...props} allBeers={this.state.beers} alexis="superAlexis"/>}/>
-            <Route exact path="/randombeer/:rando" render={props => <Randombeers {...props}/>}/>
+            <Route exact path="/randombeer" render={props => <Randombeers {...props}/>}/>
             <Route exact path="/newbeer" render={props => <Newbeers/>}/>
             <Route exact path="/beers/:happyBeer" render={props => <Beerdetails {...props}/>}/>
           </Switch>

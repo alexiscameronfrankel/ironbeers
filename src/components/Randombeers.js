@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from './Header'
 
 class Randombeers extends Component {
 
@@ -13,7 +14,7 @@ async componentDidMount(){
 
 
     //.then promise --- SETS YOUR STATE TO THE INDIVIDUAL BEER BASED ON THE ID
-    axios.get(`https://ih-beers-api2.herokuapp.com/beers/random/${this.props.match.params.rando}`).then(res => { 
+    axios.get(`https://ih-beers-api2.herokuapp.com/beers/random`).then(res => { 
         this.setState({
           beers:res.data 
         }) 
@@ -24,6 +25,7 @@ async componentDidMount(){
     render() {
         return (
             <div>
+            <Header/>
             <ul>
                 <li><img src={this.state.beers.image_url} alt={this.state.beers.name}/></li>
                 <li>{this.state.beers.name}</li>
